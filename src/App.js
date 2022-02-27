@@ -7,6 +7,7 @@ import ContactUs from "./Components/ContactUs";
 import Footer from "./Footer/Footer";
 import Dropdown from "./Navbar/Dropdown";
 import Navbar from "./Navbar/Navbar";
+import GlobalStyle from "./globalStyles";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Dropdown isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <Routes>

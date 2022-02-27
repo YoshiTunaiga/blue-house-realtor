@@ -1,13 +1,21 @@
 import React from "react";
-
+import logo from "../config/blueimg.png";
 import { menuData } from "../data/MenuData";
-
-import { Nav, NavMenu, NavMenuLinks, Logo, MenuBars } from "./NavbarElements";
+import {
+  Nav,
+  NavMenu,
+  NavMenuLinks,
+  Logo,
+  MenuBars,
+  LogoImg,
+} from "./NavbarElements";
 
 function Navbar({ toggle }) {
   return (
     <Nav>
-      <Logo to="/">Blue House Realtor</Logo>
+      <Logo to="/">
+        <LogoImg src={logo} alt="" />
+      </Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
         {menuData.map((item, index) => (

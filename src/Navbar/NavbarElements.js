@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   z-index: 100;
   position: fixed;
   width: 100%;
-  color: #ffffff;
+  /* color: #ffffff; */
 `;
 
 export const NavLink = css`
@@ -30,6 +30,12 @@ export const Logo = styled(Link)`
   ${NavLink}
   color: #ffffff;
 `;
+
+export const LogoImg = styled.img`
+  width: 50px;
+  height: 50px;
+`;
+
 export const MenuBars = styled(TiThMenu)`
   display: none;
 
