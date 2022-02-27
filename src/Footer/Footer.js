@@ -7,6 +7,9 @@ import {
   FooterLinkTitle,
   FooterLink,
   FooterLinksContainer,
+  FacebookIcon,
+  InstagramIcon,
+  FooterIcons,
 } from "./FooterElements";
 
 const Footer = () => {
@@ -17,10 +20,20 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Company</FooterLinkTitle>
+              <FooterLink to="/contact">About</FooterLink>
+              <FooterLink to="/contact">FAQs</FooterLink>
+            </FooterLinkItems>
+            <FooterLinkItems>
+              <FooterLinkTitle>Redes Sociales</FooterLinkTitle>
+              <FooterIcons>
+                <FacebookIcon />
+                <InstagramIcon />
+              </FooterIcons>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>About Us</FooterLinkTitle>
               <FooterLink to="/signin">Admin</FooterLink>
+              <FooterLink to="/contact">Contactanos</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
         </FooterLinksContainer>
