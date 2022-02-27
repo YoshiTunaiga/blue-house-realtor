@@ -1,15 +1,12 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Components";
+import Alquiler from "./Components/Alquiler";
+import Venta from "./Components/Ventas";
+import ContactUs from "./Components/ContactUs";
 import Footer from "./Footer/Footer";
 import Dropdown from "./Navbar/Dropdown";
 import Navbar from "./Navbar/Navbar";
-import styled from "styled-components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Components";
-
-// const Box = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -20,11 +17,15 @@ function App() {
 
   return (
     <>
-      {/* // <Router> */}
-      {/* <Navbar /> */}
-      <Home />
-      {/* <Route path="/" component={Home} exact /> */}
-      {/* // </Router> */}
+      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/alquiler" element={<Alquiler />} />
+        <Route path="/venta" element={<Venta />} />
+      </Routes>
+      <Footer />
     </>
   );
 }

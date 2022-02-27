@@ -12,10 +12,10 @@ const Home = () => {
   };
   return (
     <>
-      <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
+      {/* <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} /> */}
       <InfoSection />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
