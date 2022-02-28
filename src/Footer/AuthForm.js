@@ -31,14 +31,18 @@ const AuthInput = styled.input`
   fill: none;
   background: transparent;
   background-color: transparent !important;
+  color: ${colors.white};
   padding-top: 10px;
   border: none;
   outline: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   width: 70%;
 
   @media screen and (max-width: 768px) {
-    width: 80%;
+    width: 70%;
+    color: ${colors.primary};
+    border-bottom: 1px solid ${colors.primary};
+
     /* padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
