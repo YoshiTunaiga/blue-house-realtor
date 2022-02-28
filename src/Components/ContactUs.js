@@ -27,6 +27,7 @@ const FormWrapper = styled.div`
     padding: 0 0px;
   }
 `;
+
 const FormParent = styled.form`
   margin: 0px 20px;
   margin-top: 70px;

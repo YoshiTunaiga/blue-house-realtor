@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import Dropdown from "./Navbar/Dropdown";
 import Navbar from "./Navbar/Navbar";
 import GlobalStyle from "./globalStyles";
+import AuthForm from "./Footer/AuthForm";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/alquiler" element={<Alquiler />} />
         <Route path="/venta" element={<Venta />} />
+        <Route path="/signin" element={<AuthForm />} />
       </Routes>
       <Footer />
     </>

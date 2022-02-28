@@ -5,9 +5,7 @@ import { AiOutlineFacebook } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
 
 export const FooterContainer = styled.footer`
-  background-color: ${colors.primary};
-  /* width: 100%;
-  position: fixed; */
+  background-color: #d0d3d4;
 `;
 export const FooterWrap = styled.div`
   padding: 48px 24px;
@@ -52,12 +50,13 @@ export const FooterLinkItems = styled.div`
   }
 `;
 export const FooterLinkTitle = styled.h1`
+  color: black;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 16px;
 `;
 export const FooterLink = styled(Link)`
-  color: #fff;
+  color: #626567;
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
@@ -87,4 +86,29 @@ export const FooterIcons = styled.div`
   font-size: 2rem;
   cursor: pointer;
   outline: none;
+`;
+
+export const Facebook = styled.img`
+  width 30px;
+  height: 30px;
+  margin: 5px;
+`;
+
+export const Instagram = styled.img`
+  width 30px;
+  height: 30px;
+  margin: 5px;
+`;
+
+export const FooterButton = styled.button`
+  color: #626567;
+  background-color: transparent;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.3s ease-out;
+  }
 `;
