@@ -1,46 +1,17 @@
 import React from "react";
-import { houses } from "../../data/houses";
-import {
-  InfoContainer,
-  InfoWrapper,
-  HousesContent,
-  HousesParent,
-  HousesCard,
-  HouseImg,
-  HouseCardContent,
-  HousePrice,
-  HouseText,
-  HouseIcon,
-  BedIcon,
-  BathIcon,
-} from "./InfoElements";
+import { InfoContainer, InfoWrapper } from "./InfoElements";
+import ViewVentas from "./ViewVentas";
+import { ViewAlquiler } from "./ViewAlquiler";
 
-const InfoSection = () => {
+const InfoSection = ({ houses }) => {
+  const allVenta = houses.filter((house) => house.type === "venta");
+  const allAlquiler = houses.filter((house) => house.type === "alquiler");
+
   return (
     <InfoContainer>
       <InfoWrapper>
-        {/* <FilterContent>
-          <FilterParent></FilterParent>
-        </FilterContent> */}
-        <HousesContent>
-          <HousesParent>
-            {houses.map((house) => (
-              <HousesCard key={house.id}>
-                <HouseImg src={house.img} alt={house.alt} />
-                <HouseCardContent>
-                  <HousePrice>${house.price}</HousePrice>
-                  <HouseText>{house.address.ciudad}</HouseText>
-                  <HouseText>{house.category}</HouseText>
-                  {/* <HouseIcon>
-                    <HouseText />
-                    <BedIcon />
-                    <BathIcon />
-                  </HouseIcon> */}
-                </HouseCardContent>
-              </HousesCard>
-            ))}
-          </HousesParent>
-        </HousesContent>
+        <ViewVentas houses={allVenta} />
+        <ViewAlquiler houses={allAlquiler} />
       </InfoWrapper>
     </InfoContainer>
   );
