@@ -36,9 +36,9 @@ export const FooterLinksWrapper = styled.div`
 export const FooterLinkItems = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin: 16px;
-  text-align: left;
+  text-align: center;
   width: 160px;
   box-sizing: border-box;
   color: #fff;
@@ -81,8 +81,11 @@ export const FooterIcons = styled.div`
   /* top: 1.2rem;
   right: 1.5rem; */
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  text-align: center;
+  /* padding: 20px 0; */
   /* background: transparent; */
+  /* align-items: center; */
   font-size: 2rem;
   cursor: pointer;
   outline: none;
@@ -111,4 +114,12 @@ export const FooterButton = styled.button`
     color: #01bf71;
     transition: 0.3s ease-out;
   }
+`;
+
+export const FooterText = styled.p`
+  color: #626567;
+  text-decoration: none;
+  padding-top: 10px;
+  /* margin-bottom: 0.5rem; */
+  font-size: 10px;
 `;

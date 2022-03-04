@@ -7,7 +7,7 @@ import { FaTimes } from "react-icons/fa";
 
 export const Nav = styled.nav`
   height: 60px;
-  /* background: #0a44dd; */
+  background: #0a44dd;
   display: flex;
   justify-content: space-between;
   padding: 5px 5px;
