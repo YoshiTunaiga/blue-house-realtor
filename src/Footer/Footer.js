@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FooterContainer,
   FooterWrap,
@@ -14,7 +14,7 @@ import {
 } from "./FooterElements";
 
 const Footer = () => {
-  const [handleToggle, sethandleToggle] = useState(true);
+  // const [handleToggle, sethandleToggle] = useState(true);
 
   // function handleToggle() {
   //   sethandleToggle({

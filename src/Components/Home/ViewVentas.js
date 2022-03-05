@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import {
-  InfoContainer,
-  InfoWrapper,
   HousesContent,
   HousesParent,
   HousesCard,
@@ -9,13 +7,9 @@ import {
   HouseCardContent,
   HousePrice,
   HouseText,
-  HouseIcon,
-  BedIcon,
-  BathIcon,
   SliderButton,
   PrevArrow,
   NextArrow,
-  Arrow,
   ViewAll,
 } from "./InfoElements";
 

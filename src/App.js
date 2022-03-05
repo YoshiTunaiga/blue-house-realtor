@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components";
-import Alquiler from "./Components/Alquiler";
+import Alquiler from "./Components/Alquiler/Alquiler";
 import Venta from "./Components/Ventas";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Footer from "./Footer/Footer";

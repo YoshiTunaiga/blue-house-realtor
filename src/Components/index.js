@@ -1,6 +1,6 @@
 import React from "react";
 import { houses } from "../data/houses";
-import Hero from "./Hero";
+import Hero from "./HeroSlide/Hero";
 import InfoSection from "./Home/InfoSection";
 import { slideData } from "./SlideData";
 
