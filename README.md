@@ -6,8 +6,10 @@ A website to display available houses for sale or rent in DR.
 
 # Tech Stack & Tools
 
+- JavaScript
 - React.js
 - Node.js
+- Firebase
 - Styled-Components
 
 # App Features
