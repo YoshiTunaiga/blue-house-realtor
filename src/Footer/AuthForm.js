@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colors } from "../config/colors";
+import { useNavigate } from "react-router-dom";
+import { Alert } from "bootstrap";
 
 const AuthContainer = styled.div`
   background-color: ${colors.primary};
   color: ${colors.white};
+  height: 100%;
+  padding: 100px 0;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
@@ -12,8 +16,9 @@ const AuthContainer = styled.div`
     color: ${colors.primary};
   }
 `;
-const AuthForms = styled.form`
+const AuthForms = styled.div`
   margin: 0px 20px;
+  height: 100%;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
@@ -100,34 +105,37 @@ const FormLabels = styled.label`
   font-weight: bold;
 `;
 
-const AuthForm = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+const AuthForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  let navigate = useNavigate();
+
+  async function handleLogin() {
+    try {
+      email.replace(/\s/g, "");
+      password.replace(/\s/g, "");
+      console.log(email, "=>", password);
+    } catch (error) {
+      Alert.alert(error.name);
+    }
+  }
 
   return (
     <AuthContainer>
       <FormWrapper>
-        {" "}
-        <AuthForms onSubmit={handleSubmit} name={name}>
+        <AuthForms>
           <AuthWrapper>
-            <FormLabels htmlFor="username">Username</FormLabels>
+            <FormLabels htmlFor="username">Email Address</FormLabels>
             <br />
-            <AuthInput
-              className="username-input input"
-              name="username"
-              type="text"
-            />
+            <AuthInput name="email" type="text" />
           </AuthWrapper>
           <AuthWrapper>
             <FormLabels htmlFor="password">Password</FormLabels>
             <br />
-            <AuthInput
-              className="password-input input"
-              name="password"
-              type="password"
-            />
+            <AuthInput name="password" type="password" />
           </AuthWrapper>
           <AuthWrapper>
-            <FormButton className="login-button" type="submit">
+            <FormButton onSubmit={handleLogin} type="submit">
               Login
             </FormButton>
           </AuthWrapper>
