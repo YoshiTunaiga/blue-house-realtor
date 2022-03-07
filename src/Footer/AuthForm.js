@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colors } from "../config/colors";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "bootstrap";
 
 const AuthContainer = styled.div`
   background-color: ${colors.primary};
@@ -105,20 +104,10 @@ const FormLabels = styled.label`
   font-weight: bold;
 `;
 
-const AuthForm = () => {
+function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
-
-  async function handleLogin() {
-    try {
-      email.replace(/\s/g, "");
-      password.replace(/\s/g, "");
-      console.log(email, "=>", password);
-    } catch (error) {
-      Alert.alert(error.name);
-    }
-  }
 
   return (
     <AuthContainer>
@@ -127,22 +116,34 @@ const AuthForm = () => {
           <AuthWrapper>
             <FormLabels htmlFor="username">Email Address</FormLabels>
             <br />
-            <AuthInput name="email" type="text" />
+            <AuthInput
+              name="email"
+              type="text"
+              placeholder="Email..."
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
           </AuthWrapper>
           <AuthWrapper>
             <FormLabels htmlFor="password">Password</FormLabels>
             <br />
-            <AuthInput name="password" type="password" />
+            <AuthInput
+              name="password"
+              type="password"
+              placeholder="Password..."
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
           </AuthWrapper>
           <AuthWrapper>
-            <FormButton onSubmit={handleLogin} type="submit">
-              Login
-            </FormButton>
+            <FormButton type="submit">Login</FormButton>
           </AuthWrapper>
         </AuthForms>
       </FormWrapper>
     </AuthContainer>
   );
-};
+}
 
 export default AuthForm;
