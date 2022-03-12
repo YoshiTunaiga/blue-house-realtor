@@ -6,11 +6,16 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import history from "./history";
+import store from "./redux/index";
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
 

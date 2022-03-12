@@ -8,7 +8,7 @@ import Footer from "./Footer/Footer";
 import Dropdown from "./Navbar/Dropdown";
 import Navbar from "./Navbar/Navbar";
 import GlobalStyle from "./globalStyles";
-import AuthForm from "./Footer/AuthForm";
+import { Login } from "./Footer/AuthForm";
 import AddNew from "./Components/AddNew";
 import NotFound from "./Components/NotFound";
 import { Admin } from "./Components/Admin";
@@ -30,7 +30,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/alquiler" element={<Alquiler />} />
         <Route path="/venta" element={<Venta />} />
-        <Route path="/signin" element={<AuthForm />} />
+        <Route path="/signin" element={<Login />} />
         <Route path="/agregar" element={<AddNew />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />

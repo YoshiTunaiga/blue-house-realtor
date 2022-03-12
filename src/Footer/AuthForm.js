@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { colors } from "../config/colors";
-import { useNavigate } from "react-router-dom";
+import { authenticate } from "../redux/auth";
 
 const AuthContainer = styled.div`
   background-color: ${colors.primary};
@@ -25,12 +26,10 @@ const AuthForms = styled.div`
     margin-top: 5px;
   }
 `;
-
 const AuthWrapper = styled.div`
   margin: 1em;
   display: inline-block;
 `;
-
 const AuthInput = styled.input`
   fill: none;
   background: transparent;
@@ -53,7 +52,6 @@ const AuthInput = styled.input`
     resize: vertical; */
   }
 `;
-
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,7 +66,6 @@ const FormWrapper = styled.div`
     padding: 0 0px;
   }
 `;
-
 const FormButton = styled.button`
   background-color: ${colors.white};
   color: ${colors.primary};
@@ -97,53 +94,86 @@ const FormButton = styled.button`
     color: ${colors.white};
   }
 `;
-
 const FormLabels = styled.label`
   padding: 12px 12px 12px 0;
   display: inline-block;
   font-weight: bold;
 `;
 
-function AuthForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  let navigate = useNavigate();
+class AuthForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+    };
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  return (
-    <AuthContainer>
-      <FormWrapper>
-        <AuthForms>
-          <AuthWrapper>
-            <FormLabels htmlFor="username">Email Address</FormLabels>
-            <br />
-            <AuthInput
-              name="email"
-              type="text"
-              placeholder="Email..."
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-            />
-          </AuthWrapper>
-          <AuthWrapper>
-            <FormLabels htmlFor="password">Password</FormLabels>
-            <br />
-            <AuthInput
-              name="password"
-              type="password"
-              placeholder="Password..."
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
-            />
-          </AuthWrapper>
-          <AuthWrapper>
-            <FormButton type="submit">Login</FormButton>
-          </AuthWrapper>
-        </AuthForms>
-      </FormWrapper>
-    </AuthContainer>
-  );
+  handleChange(evt) {
+    this.setState({ [evt.target.name]: evt.target.value });
+  }
+
+  handleLogin(evt) {
+    evt.preventDefault();
+    console.log("logged!!!");
+  }
+
+  render() {
+    return (
+      <AuthContainer>
+        <FormWrapper>
+          <AuthForms>
+            <AuthWrapper>
+              <FormLabels htmlFor="username">Email Address</FormLabels>
+              <br />
+              <AuthInput
+                id="email"
+                name="email"
+                type="text"
+                variant="outlined"
+                placeholder="Email..."
+              />
+            </AuthWrapper>
+            <AuthWrapper>
+              <FormLabels htmlFor="password">Password</FormLabels>
+              <br />
+              <AuthInput
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password..."
+              />
+            </AuthWrapper>
+            <AuthWrapper>
+              <FormButton>Login</FormButton>
+            </AuthWrapper>
+          </AuthForms>
+        </FormWrapper>
+      </AuthContainer>
+    );
+  }
 }
 
-export default AuthForm;
+const mapLogin = (state) => {
+  return {
+    name: "login",
+    displayName: "Login",
+    error: state.auth.error,
+  };
+};
+
+const mapDispatch = (dispatch, { history }) => {
+  return {
+    handleSubmit(evt) {
+      evt.preventDefault();
+      const formName = evt.target.name;
+      const username = evt.target.username.value;
+      const password = evt.target.password.value;
+      dispatch(authenticate(username, password, formName, history));
+    },
+  };
+};
+
+export const Login = connect(mapLogin, mapDispatch)(AuthForm);

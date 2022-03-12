@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
-// import firebase from "firebase/compat/app";
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import firebase from "firebase/compat/app";
+// import { initializeApp } from "firebase/app";
+// import { getAuth } from "firebase/auth";
 
-// import { getFirestore, collection } from "firebase/firestore";
+// import { getFirestore } from "firebase/firestore";
 // import { getAnalytics } from "firebase/analytics";
 import "firebase/auth";
 
@@ -22,7 +22,11 @@ const firebaseConfig = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 
+export const app = firebase.initializeApp(firebaseConfig);
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+// export const auth = getAuth(app);
+// export const db = getFirestore(app);
+// export const auth = firebase.auth();
