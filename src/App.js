@@ -12,6 +12,8 @@ import AuthForm from "./Footer/AuthForm";
 import AddNew from "./Components/AddNew";
 import NotFound from "./Components/NotFound";
 import { Admin } from "./Components/Admin";
+import { AuthProvider } from "./Footer/AuthContext";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -22,20 +24,25 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
-      <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/alquiler" element={<Alquiler />} />
-        <Route path="/venta" element={<Venta />} />
-        <Route path="/signin" element={<AuthForm />} />
-        <Route path="/agregar" element={<AddNew />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <Router>
+        <GlobalStyle />
+        <Dropdown isOpen={isOpen} toggle={toggle} />
+        <Navbar toggle={toggle} />
+        <AuthProvider>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/alquiler" element={<Alquiler />} />
+            <Route path="/venta" element={<Venta />} />
+            <Route path="/signin" element={<AuthForm />} />
+            <Route path="/agregar" element={<AddNew />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
+
+        <Footer />
+      </Router>
     </>
   );
 }
