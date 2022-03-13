@@ -12,18 +12,16 @@ import {
   AlquilerCity,
   AlquilerPrice,
   AlquilerType,
+  HouseIcon,
+  HouseText,
+  BedIcon,
+  BathIcon,
 } from "./InfoElements";
-// import ViewVentas from "./ViewVentas";
-// import { ViewAlquiler } from "./ViewAlquiler";
 
 const InfoSection = ({ houses }) => {
-  // const allVenta = houses.filter((house) => house.type === "venta");
-  // const allAlquiler = houses.filter((house) => house.type === "alquiler");
-
   return (
     <InfoContainer>
       <InfoWrapper>
-        {/* <ViewAlquiler houses={houses} /> */}
         <AlquilerContainer>
           {houses.map((item, idx) => (
             <AlquilerParent key={idx}>
@@ -32,9 +30,21 @@ const InfoSection = ({ houses }) => {
                   <p>{item.type}</p>
                 </AlquilerType>
                 <AlquilerImg src={item.img} alt={item.alt} />
+                <HouseIcon>
+                  <HouseText>
+                    <BedIcon />
+                    {item.rooms} Hab
+                  </HouseText>
+
+                  <HouseText>
+                    <BathIcon />
+                    {item.bath} Bano
+                  </HouseText>
+                </HouseIcon>
                 <AlquilerInfo>
                   <AlquilerCity>{item.address.ciudad}</AlquilerCity>
                   <AlquilerPrice>
+                    Precio: {""}
                     {item.price.toLocaleString("en-US", {
                       style: "currency",
                       currency: "USD",

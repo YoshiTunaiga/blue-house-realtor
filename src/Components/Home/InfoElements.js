@@ -127,14 +127,15 @@ export const AlquilerInfo = styled.div`
 `;
 
 export const AlquilerCity = styled.h2`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.1em;
   color: #32325d;
   margin-bottom: 0.2em;
 `;
 
-export const AlquilerPrice = styled.h3`
-  font-size: 25px;
+export const AlquilerPrice = styled.span`
+  font-size: 18px;
+  font-weight: bold;
   line-height: 1.1em;
   color: #32325d;
   margin-bottom: 0.2em;
@@ -147,9 +148,10 @@ export const AlquilerType = styled.div`
   align-items: center;
   justify-content: center;
   width: 60px;
-  height: 40px;
+  height: 25px;
   position: absolute;
   z-index: 1;
+  border-radius: 6px 0 6px 0;
 `;
 
 /* --------- HOUSES ------------------------ */
@@ -199,8 +201,8 @@ export const HouseImg = styled.img`
   opacity: 0.91;
 `;
 
-export const HousePrice = styled.h2`
-  font-size: 30px;
+export const HousePrice = styled.span`
+  font-size: 12px;
   color: black;
 `;
 
@@ -211,27 +213,33 @@ export const HouseCardContent = styled.div`
   padding: 1rem;
   line-height: 1.5em;
 `;
-export const HouseText = styled.p`
-  font-size: 20px;
-  color: black;
+export const HouseText = styled.span`
+  font-size: 14px;
+  padding: 0 10px;
 `;
 
 export const HouseIcon = styled.div`
-  top: 1.2rem;
-  right: 1.5rem;
+  background-color: ${colors.primary};
+  color: ${colors.white};
+  font-size: 1rem;
   display: flex;
-  justify-content: space-evenly;
-  /* background: transparent; */
-  font-size: 2rem;
-  cursor: pointer;
-  outline: none;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  padding: 8px 10px;
+  align-items: center;
+  /* cursor: pointer;
+  outline: none; */
+  height: 25px;
+  width: 100%;
 `;
 export const BedIcon = styled(FaBed)`
-  color: ${colors.primary};
+  color: ${colors.white};
+  margin-right: 5px;
 `;
 
 export const BathIcon = styled(FaBath)`
-  color: ${colors.primary};
+  color: ${colors.white};
+  margin-right: 5px;
 `;
 
 export const SliderButton = styled.div`
