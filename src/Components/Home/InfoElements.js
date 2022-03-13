@@ -7,31 +7,35 @@ import { Link } from "react-router-dom";
 import { css } from "styled-components";
 
 export const InfoContainer = styled.div`
+  /* align-items: center;
+  justify-content: center;
   @media screen and (max-width: 768px) {
     padding: 100px 0;
-  }
+  } */
 `;
-export const InfoWrapper = styled.div`
-  display: grid;
 
+export const InfoWrapper = styled.div`
+  /* display: block; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* display: flex;
   height: 100%;
   width: 100%;
   max-width: 1600px;
+  align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-left: 30px;
   padding: 0 0px;
 
   @media screen and (max-width: 768px) {
     padding: 0 0px;
     height: 80%;
-    /* max-width: 700px; */
-  }
+  } */
 `;
+
 export const FilterContent = styled.div`
   margin-top: 80px;
-  /* position: relative; */
   height: 50px;
   background-color: gray;
 
@@ -40,57 +44,159 @@ export const FilterContent = styled.div`
   }
 `;
 export const FilterParent = styled.div``;
-export const HousesContent = styled.div`
+
+export const AlquilerContainer = styled.div`
+  /* padding: 100px 0; */
+  display: flex;
+  flex-direction: row;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 10px;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    /* padding: 100px 0; */
+  }
+
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+`;
+
+export const AlquilerParent = styled.div`
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  /* width: 100%; */
+  @media (min-width: 40rem) {
+    width: 50%;
+  }
+  @media (min-width: 56rem) {
+    width: 33.3%;
+  }
+`;
+
+export const AlquilerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 80%;
+  margin: 10px;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    .card-image {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+    width: 100%;
+  }
+`;
+
+export const AlquilerImg = styled.img`
+  height: 200px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 6px 6px 0px 0px;
+  opacity: 0.91;
+`;
+
+export const AlquilerInfo = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5em;
+`;
+
+export const AlquilerCity = styled.h2`
+  font-size: 18px;
+  line-height: 1.1em;
+  color: #32325d;
+  margin-bottom: 0.2em;
+`;
+
+export const AlquilerPrice = styled.h3`
+  font-size: 25px;
+  line-height: 1.1em;
+  color: #32325d;
+  margin-bottom: 0.2em;
+`;
+
+export const AlquilerType = styled.div`
+  background-color: ${colors.primary};
+  color: ${colors.white};
   text-align: center;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  z-index: 1;
+`;
+
+/* --------- HOUSES ------------------------ */
+export const HousesContent = styled.div`
+  /* text-align: center; */
+  /* margin-top: 20px; */
 `;
 export const HousesParent = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  @media screen and (max-width: 768px) {
-    justify-content: space-evenly;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  @media (min-width: 40rem) {
+    width: 50%;
+  }
+  @media (min-width: 56rem) {
+    width: 33.3%;
   }
 `;
 export const HousesCard = styled.div`
-  margin: 0 40px;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  width: 100%;
-  height: 20%;
-  padding: 25px;
-  border-radius: 25px;
-  text-align: center;
-  align-items: center;
   display: flex;
-  border: 2px solid #04aadd;
+  flex-direction: column;
+  background-color: #fff;
+  width: 50%;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
 
-  @media screen and (max-width: 768px) {
-    height: 400px;
-    display: block;
-    margin: 10px;
-    margin-bottom: 50px;
-    width: 70%;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    .card-image {
+      opacity: 1;
+    }
   }
 `;
 export const HouseImg = styled.img`
-  box-shadow: 4px 13px 30px 1px rgba(10, 68, 221, 0.2);
-  border-radius: 20px;
-  flex-shrink: 0;
-  /* overflow: hidden; */
-  width: 50%;
-  height: 50%;
-  transform: translateX(-80px);
-
-  @media screen and (max-width: 768px) {
-    overflow: visible;
-    transform: translateX(0px);
-    width: 100%;
-  }
+  height: 200px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 6px 6px 0px 0px;
+  opacity: 0.91;
 `;
 
 export const HousePrice = styled.h2`
@@ -99,8 +205,11 @@ export const HousePrice = styled.h2`
 `;
 
 export const HouseCardContent = styled.div`
-  margin-top: 10px;
-  text-align: left;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5em;
 `;
 export const HouseText = styled.p`
   font-size: 20px;

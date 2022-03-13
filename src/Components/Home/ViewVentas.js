@@ -49,10 +49,10 @@ export default function ViewVentas({ houses }) {
                 <HouseText>{house.address.ciudad}</HouseText>
                 <HouseText>{house.category}</HouseText>
                 {/* <HouseIcon>
-                                  <HouseText />
-                                  <BedIcon />
-                                  <BathIcon />
-                                </HouseIcon> */}
+                      <HouseText />
+                      <BedIcon />
+                      <BathIcon />
+                    </HouseIcon> */}
                 <SliderButton>
                   <PrevArrow onClick={prevSlide} />
                   <NextArrow onClick={nextSlide} />

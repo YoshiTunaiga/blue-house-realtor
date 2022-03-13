@@ -10,10 +10,12 @@ export const AlquilerContainer = styled.div`
   -ms-display: flexbox;
   -webkit-display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: 0 0 0 20px;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
-    padding: 100px 0;
+    /* padding: 100px 0; */
   }
 
   ::before,
@@ -26,7 +28,7 @@ export const AlquilerParent = styled.div`
   display: flex;
   padding: 1rem;
   margin-bottom: 2rem;
-  width: 100%;
+  /* width: 100%; */
   @media (min-width: 40rem) {
     width: 50%;
   }
@@ -39,7 +41,8 @@ export const AlquilerCard = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 100%;
+  width: 80%;
+  margin: 10px;
   border-radius: 6px;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -53,6 +56,11 @@ export const AlquilerCard = styled.div`
     .card-image {
       opacity: 1;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+    width: 100%;
   }
 `;
 
