@@ -98,7 +98,7 @@ export const Admin = () => {
             <PlusSign /> Agregar Nuevo
           </AgregarBtn>
         </AdminHead>
-        <AdminParent></AdminParent>
+        <AdminParent>{currentUser.email}</AdminParent>
         <Button variant="link" onClick={handleLogout}>
           Log Out
         </Button>

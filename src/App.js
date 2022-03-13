@@ -14,6 +14,7 @@ import NotFound from "./Components/NotFound";
 import { Admin } from "./Components/Admin";
 import { AuthProvider } from "./Footer/AuthContext";
 import { BrowserRouter as Router } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
