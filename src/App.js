@@ -14,6 +14,7 @@ import NotFound from "./Components/NotFound";
 import { Admin } from "./Components/Admin";
 import { AuthProvider } from "./Footer/AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import SingleHouse from "./Components/SingleHouse/SingleHouse";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/venta" element={<Venta />} />
           <Route path="/signin" element={<AuthForm />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/houses/:id" element={<SingleHouse />} />
           <Route
             path="/admin"
             element={

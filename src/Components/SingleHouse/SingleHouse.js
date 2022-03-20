@@ -4,14 +4,20 @@ import {
   SingleContainer,
   SingleParent,
   SingleWrapper,
+  SingleTitle,
 } from "./SingleHouseElements";
 
 const SingleHouse = () => {
+  // console.log("hello =>>", props.match.params);
   return (
     <SingleContainer>
       <SingleWrapper>
-        <SingleParent></SingleParent>
-        <SingleContact></SingleContact>
+        <SingleParent>
+          <SingleTitle>VENTA</SingleTitle>
+        </SingleParent>
+        <SingleContact>
+          <SingleTitle>CONTACTO</SingleTitle>
+        </SingleContact>
       </SingleWrapper>
     </SingleContainer>
   );
