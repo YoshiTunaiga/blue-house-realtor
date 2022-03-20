@@ -29,7 +29,9 @@ const InfoSection = ({ houses }) => {
         <AlquilerContainer>
           {houses.map((item, idx) => (
             <AlquilerParent key={idx}>
-              <Link to={{ pathname: `houses/${item.id}`, housesProps: item }}>
+              <Link
+                to={{ pathname: `houses/${item.id}`, params: { item: item } }}
+              >
                 <AlquilerCard key={item.id}>
                   <AlquilerType>
                     <p>{item.type}</p>
