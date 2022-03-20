@@ -36,20 +36,30 @@ function AuthForm() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <Card>
+      <Card style={{ width: "20rem" }}>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
+            <Form.Group className="mb-3" id="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                ref={emailRef}
+                required
+              />
             </Form.Group>
-            <Form.Group id="password">
+            <Form.Group className="mb-3" id="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                ref={passwordRef}
+                required
+              />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} variant="primary" type="submit">
               Log In
             </Button>
           </Form>
