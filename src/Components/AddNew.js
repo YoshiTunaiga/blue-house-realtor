@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { colors } from "../config/colors";
 import ImageUploader from "./ImageUploader";
+import { auth, db } from "../config/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 /* ------------- MAIN CONTAINERS  ---------------*/
 const NewContainer = styled.div`
@@ -152,7 +154,20 @@ const FifthContainer = styled.div`
 
 /* -------------------- END DIVISORES ------------------------ */
 
-function AddNew() {
+const AddNew = () => {
+  const [title, setTitle] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [currency, setCurrency] = useState("");
+
+  console.log(title, precio, currency);
+
+  // Adding a new house/ appt/ or else.
+  /*
+  async function addingNew() {
+    await setDoc(doc(db, "item"), {});
+  }
+  */
+
   return (
     <NewContainer>
       <NewWrapper>
@@ -161,11 +176,15 @@ function AddNew() {
           <FirstContainer>
             <div>
               <NewLabels>Titulo</NewLabels>
-              <NewInput type="text" name="title" />
+              <NewInput
+                type="text"
+                name="title"
+                onChange={(text) => setTitle(text)}
+              />
             </div>
             <OtherPrecio>
               <NewLabels>Precio $</NewLabels>
-              <NewPrecio type="number" name="precio" />
+              <NewPrecio type="text" required name="precio" />
               <div>
                 <Other>
                   <NewLabels>
@@ -186,8 +205,8 @@ function AddNew() {
 
           <SecondContainer>
             <NewLabels>Detalles</NewLabels>
-            <div class="custom-select">
-              <label for="rooms">Habitaciones:</label>
+            <div className="custom-select">
+              <label htmlFor="rooms">Habitaciones:</label>
 
               <Selects name="room">
                 <option value="0">🛏 Habitaciones</option>
@@ -205,8 +224,8 @@ function AddNew() {
                 <option value="12">12</option>
               </Selects>
             </div>
-            <div class="custom-select">
-              <label for="bano">Baño:</label>
+            <div className="custom-select">
+              <label htmlFor="bano">Baño:</label>
               <Selects name="bano">
                 <option value="0">🛁 Baño</option>
                 <option value="1">1</option>
@@ -223,8 +242,8 @@ function AddNew() {
                 <option value="12">12</option>
               </Selects>
             </div>
-            <div class="custom-select">
-              <label for="parqueo">Parqueo:</label>
+            <div className="custom-select">
+              <label htmlFor="parqueo">Parqueo:</label>
 
               <Selects name="parqueo">
                 <option value="0">🚘 Parqueo</option>
@@ -242,8 +261,8 @@ function AddNew() {
                 <option value="12">12</option>
               </Selects>
             </div>
-            <div class="custom-select">
-              <label for="niveles">Niveles:</label>
+            <div className="custom-select">
+              <label htmlFor="niveles">Niveles:</label>
 
               <Selects name="niveles">
                 <option value="0"> Niveles</option>
@@ -261,8 +280,8 @@ function AddNew() {
                 <option value="12">12</option>
               </Selects>
             </div>
-            <div class="custom-select">
-              <label for="superficie">Superficie Solar:</label>
+            <div className="custom-select">
+              <label htmlFor="superficie">Superficie Solar:</label>
 
               <NewInput
                 style={{ marginLeft: "10px", width: "40%" }}
@@ -313,6 +332,6 @@ function AddNew() {
       </NewWrapper>
     </NewContainer>
   );
-}
+};
 
 export default AddNew;
