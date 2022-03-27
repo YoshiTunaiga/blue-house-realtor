@@ -8,6 +8,10 @@ import {
   AlquilerInfo,
   AlquilerCity,
   AlquilerPrice,
+  HouseIcon,
+  BedIcon,
+  HouseText,
+  BathIcon,
 } from "./AlquilerElements";
 
 const Ventas = () => {
@@ -19,6 +23,17 @@ const Ventas = () => {
         <AlquilerParent key={idx}>
           <AlquilerCard key={item.id}>
             <AlquilerImg src={item.img} alt={item.alt} />
+            <HouseIcon>
+              <HouseText>
+                <BedIcon />
+                {item.rooms} Hab
+              </HouseText>
+
+              <HouseText>
+                <BathIcon />
+                {item.bath} Bano
+              </HouseText>
+            </HouseIcon>
             <AlquilerInfo>
               <AlquilerCity>{item.address.ciudad}</AlquilerCity>
               <AlquilerPrice>

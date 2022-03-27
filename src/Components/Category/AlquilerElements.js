@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../config/colors";
+import { FaBed, FaBath } from "react-icons/fa";
 
 export const AlquilerContainer = styled.div`
   padding: 100px 0;
@@ -10,10 +11,13 @@ export const AlquilerContainer = styled.div`
   -ms-display: flexbox;
   -webkit-display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: 0 0 0 10px;
+  align-items: center;
+  /* justify-content: center; */
+  align-content: stretch;
 
   @media screen and (max-width: 768px) {
-    padding: 100px 0;
+    /* padding: 100px 0; */
   }
 
   ::before,
@@ -26,7 +30,7 @@ export const AlquilerParent = styled.div`
   display: flex;
   padding: 1rem;
   margin-bottom: 2rem;
-  width: 100%;
+  /* width: 100%; */
   @media (min-width: 40rem) {
     width: 50%;
   }
@@ -39,7 +43,8 @@ export const AlquilerCard = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 100%;
+  width: 80%;
+  margin: 10px;
   border-radius: 6px;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -54,10 +59,16 @@ export const AlquilerCard = styled.div`
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+    width: 100%;
+  }
 `;
 
 export const AlquilerImg = styled.img`
-  height: 200px;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -86,4 +97,33 @@ export const AlquilerPrice = styled.h3`
   line-height: 1.1em;
   color: #32325d;
   margin-bottom: 0.2em;
+`;
+
+export const HouseIcon = styled.div`
+  background-color: ${colors.primary};
+  color: ${colors.white};
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  padding: 8px 10px;
+  align-items: center;
+  /* cursor: pointer;
+  outline: none; */
+  height: 25px;
+  width: 100%;
+`;
+export const BedIcon = styled(FaBed)`
+  color: ${colors.white};
+  margin-right: 5px;
+`;
+
+export const BathIcon = styled(FaBath)`
+  color: ${colors.white};
+  margin-right: 5px;
+`;
+
+export const HouseText = styled.span`
+  font-size: 14px;
+  padding: 0 10px;
 `;

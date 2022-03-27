@@ -5,9 +5,14 @@
 /.pnp
 .pnp.js
 .env
+package-lock.json
+secret.js
+public/bundle.js
+public/bundle.js.map
 
 # testing
 /coverage
+
 
 # production
 /build

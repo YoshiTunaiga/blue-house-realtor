@@ -12,6 +12,9 @@ import AuthForm from "./Footer/AuthForm";
 import AddNew from "./Components/AddNew";
 import NotFound from "./Components/NotFound";
 import { Admin } from "./Components/Admin";
+import { AuthProvider } from "./Footer/AuthContext";
+import PrivateRoute from "./PrivateRoute";
+import SingleHouse from "./Components/SingleHouse/SingleHouse";
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
@@ -25,19 +28,42 @@ function App() {
       <GlobalStyle />
       <Dropdown isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/alquiler" element={<Alquiler />} />
-        <Route path="/venta" element={<Venta />} />
-        <Route path="/signin" element={<AuthForm />} />
-        <Route path="/agregar" element={<AddNew />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/alquiler" element={<Alquiler />} />
+          <Route path="/venta" element={<Venta />} />
+          <Route path="/signin" element={<AuthForm />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/houses/:id" element={<SingleHouse />} />
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <Admin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/agregar"
+            element={
+              <PrivateRoute>
+                <AddNew />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
+
       <Footer />
     </>
   );
 }
 
 export default App;
+
+/*
+<Route path="/agregar" element={<AddNew />} />
+<Route path="/admin" element={<Admin />} />
+*/

@@ -1,148 +1,77 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { colors } from "../config/colors";
-import { useNavigate } from "react-router-dom";
-
-const AuthContainer = styled.div`
-  background-color: ${colors.primary};
-  color: ${colors.white};
-  height: 100%;
-  padding: 100px 0;
-
-  @media screen and (max-width: 768px) {
-    padding: 100px 0;
-    background-color: ${colors.white};
-    color: ${colors.primary};
-  }
-`;
-const AuthForms = styled.div`
-  margin: 0px 20px;
-  height: 100%;
-  margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid ${colors.primary} @media screen and (max-width: 768px) {
-    margin-top: 5px;
-  }
-`;
-
-const AuthWrapper = styled.div`
-  margin: 1em;
-  display: inline-block;
-`;
-
-const AuthInput = styled.input`
-  fill: none;
-  background: transparent;
-  background-color: transparent !important;
-  color: ${colors.white};
-  padding-top: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid white;
-  width: 70%;
-
-  @media screen and (max-width: 768px) {
-    width: 70%;
-    color: ${colors.primary};
-    border-bottom: 1px solid ${colors.primary};
-
-    /* padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical; */
-  }
-`;
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  height: 500px;
-  width: 500px;
-  max-width: 1600px;
-  border-radius: 5px;
-  padding: 20px;
-
-  @media screen and (max-width: 768px) {
-    padding: 0 0px;
-  }
-`;
-
-const FormButton = styled.button`
-  background-color: ${colors.white};
-  color: ${colors.primary};
-  margin-top: 10px;
-  white-space: nowrap;
-  outline: none;
-  border: none;
-  min-width: 100px;
-  max-width: 200px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: ${({ big }) => (big ? "16px 40px" : "14px 24px")};
-  font-size: ${({ big }) => (big ? "20px" : "14px")};
-  font-weight: bold;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  @media screen and (max-width: 768px) {
-    background-color: ${colors.primary};
-    color: ${colors.white};
-  }
-`;
-
-const FormLabels = styled.label`
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-  font-weight: bold;
-`;
+import { useAuth } from "./AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 
 function AuthForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  let navigate = useNavigate();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  // const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      // history.push("/");
+      navigate("/admin");
+    } catch {
+      setError("Failed to log in");
+    }
+
+    // after its done with loging the user in, loading will end.
+    setLoading(false);
+  }
 
   return (
-    <AuthContainer>
-      <FormWrapper>
-        <AuthForms>
-          <AuthWrapper>
-            <FormLabels htmlFor="username">Email Address</FormLabels>
-            <br />
-            <AuthInput
-              name="email"
-              type="text"
-              placeholder="Email..."
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-            />
-          </AuthWrapper>
-          <AuthWrapper>
-            <FormLabels htmlFor="password">Password</FormLabels>
-            <br />
-            <AuthInput
-              name="password"
-              type="password"
-              placeholder="Password..."
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
-            />
-          </AuthWrapper>
-          <AuthWrapper>
-            <FormButton type="submit">Login</FormButton>
-          </AuthWrapper>
-        </AuthForms>
-      </FormWrapper>
-    </AuthContainer>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <Card style={{ width: "20rem" }}>
+        <Card.Body>
+          <h2 className="text-center mb-4">Log In</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                ref={emailRef}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                ref={passwordRef}
+                required
+              />
+            </Form.Group>
+            <Button disabled={loading} variant="primary" type="submit">
+              Log In
+            </Button>
+          </Form>
+          <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div>
+        </Card.Body>
+      </Card>
+      {/* <div className="w-100 text-center mt-2">
+        Need an account? <Link to="/signup">Sign Up</Link>
+      </div> */}
+    </Container>
   );
 }
 

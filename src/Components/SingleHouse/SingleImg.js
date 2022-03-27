@@ -1,19 +1,17 @@
 import React, { useState, useRef } from "react";
-import { Button } from "../Button";
 import {
   HeroSection,
-  HeroContent,
-  HeroImage,
+  HeroWrapper,
   HeroSlide,
   HeroSlider,
-  HeroWrapper,
-  Arrow,
+  HeroImage,
+  SliderButton,
   PrevArrow,
   NextArrow,
-  SliderButton,
-} from "./HeroElements";
+  HeroContent,
+} from "./SingleHouseElements";
 
-const Hero = ({ slides }) => {
+function SingleImg({ slides }) {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const timeout = useRef(null);
@@ -43,20 +41,11 @@ const Hero = ({ slides }) => {
           <HeroSlide key={index}>
             {index === current && (
               <HeroSlider>
-                <HeroImage src={slide.img} alt={slide.alt} />
+                <HeroImage src={slide.img} alt="house" />
                 <HeroContent>
-                  <h1>{slide.title}</h1>
-                  <p>{slide.price}</p>
-                  <Button
-                    to={slide.path}
-                    primary="true"
-                    css={`
-                      max-width: 160px;
-                    `}
-                  >
-                    {slide.label}
-                    <Arrow />
-                  </Button>
+                  <h2>
+                    {index + 1}/ {slides.length}
+                  </h2>
                 </HeroContent>
               </HeroSlider>
             )}
@@ -69,6 +58,6 @@ const Hero = ({ slides }) => {
       </HeroWrapper>
     </HeroSection>
   );
-};
+}
 
-export default Hero;
+export default SingleImg;
