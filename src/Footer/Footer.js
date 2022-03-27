@@ -14,14 +14,6 @@ import {
 } from "./FooterElements";
 
 const Footer = () => {
-  // const [handleToggle, sethandleToggle] = useState(true);
-
-  // function handleToggle() {
-  //   sethandleToggle({
-  //     hidden: !this.state.hidden,
-  //   });
-  // }
-
   return (
     <FooterContainer>
       <FooterWrap>

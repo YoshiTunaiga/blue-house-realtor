@@ -67,14 +67,6 @@ export const AlquilerCard = styled.div`
 `;
 
 export const AlquilerImg = styled.img`
-  /* height: 200px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 6px 6px 0px 0px;
-  opacity: 0.91; */
-
   height: 100%;
   width: 100%;
   overflow: hidden;
