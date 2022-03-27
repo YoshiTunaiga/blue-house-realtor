@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../config/colors";
+import ImageUploader from "./ImageUploader";
 
+/* ------------- MAIN CONTAINERS  ---------------*/
 const NewContainer = styled.div`
   background-color: ${colors.white};
   color: ${colors.primary};
@@ -17,31 +19,40 @@ const NewContainer = styled.div`
 `;
 
 const NewParent = styled.div`
-  margin: 0px 20px;
+  margin: 0px 0px;
   height: 100%;
-  width: 80%;
+  width: 100%;
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   border: 1px solid ${colors.primary} @media screen and (max-width: 768px) {
     margin-top: 5px;
   }
+  background-color: #7e9fb8;
+
+  // for grid
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-gap: 5px; */
 `;
 
 const NewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   max-width: 1600px;
   border-radius: 5px;
   padding: 20px;
+  background-color: #c0c9cf;
 
   @media screen and (max-width: 768px) {
     padding: 0 0px;
   }
 `;
+/* ------------- END MAIN CONTAINERS  ---------------*/
 
 const NewLabels = styled.label`
   padding: 12px 12px 12px 0;
@@ -73,10 +84,11 @@ const NewPrecio = styled.input`
   background: transparent;
   background-color: transparent !important;
   color: ${colors.primary};
-  padding-top: 5px;
+  /* padding-top: 5px; */
   border: 1px solid ${colors.primary};
   outline: none;
-  width: 30%;
+  width: 50%;
+  height: 30%;
   font-size: 20px;
 
   @media screen and (max-width: 768px) {
@@ -86,8 +98,12 @@ const NewPrecio = styled.input`
   }
 `;
 
-const NewFirst = styled.div`
-  display: flex;
+const OtherPrecio = styled.div`
+  border: 2px solid #956342;
+`;
+
+const Other = styled.div`
+  margin: 5px;
 `;
 
 const NewTextArea = styled.textarea`
@@ -103,21 +119,55 @@ const NewAgregarBtn = styled.button`
   width: 100px;
 `;
 
+const Selects = styled.select`
+  margin-left: 5px;
+`;
+
+/* -------------------- DIVISORES ------------------------ */
+const FirstContainer = styled.div`
+  padding: 10px;
+  border: 2px solid #3577aa;
+`;
+
+const SecondContainer = styled.div`
+  border: 2px solid #425995;
+  padding: 10px;
+`;
+
+const ThirdContainer = styled.div`
+  padding: 10px;
+  border: 2px solid #524295;
+`;
+
+const FourthContainer = styled.div`
+  border: 2px solid #956342;
+  padding: 10px;
+`;
+
+const FifthContainer = styled.div`
+  border: 2px solid #956342;
+
+  padding: 10px;
+`;
+
+/* -------------------- END DIVISORES ------------------------ */
+
 function AddNew() {
   return (
     <NewContainer>
       <NewWrapper>
         <NewParent>
-          <NewFirst>
+          {/* ------------------------ TITLE & PRICE ------------------------- */}
+          <FirstContainer>
             <div>
               <NewLabels>Titulo</NewLabels>
               <NewInput type="text" name="title" />
             </div>
-            <div>
-              <NewLabels>Precio</NewLabels>
+            <OtherPrecio>
+              <NewLabels>Precio $</NewLabels>
               <NewPrecio type="number" name="precio" />
               <div>
-                <div>
+                <Other>
                   <NewLabels>
                     <NewInput type="radio" name="usd" />
                     USD
@@ -126,15 +176,20 @@ function AddNew() {
                     <NewInput type="radio" name="dop" />
                     DOP
                   </NewLabels>
-                </div>
+                </Other>
               </div>
-            </div>
-          </NewFirst>
+            </OtherPrecio>
+          </FirstContainer>
+          {/* ------------------------ END TITLE & PRICE ------------------------- */}
 
-          <NewLabels>Detalles</NewLabels>
-          <div>
+          {/* ------------------------- DETAILS ------------------------- */}
+
+          <SecondContainer>
+            <NewLabels>Detalles</NewLabels>
             <div class="custom-select">
-              <select>
+              <label for="rooms">Habitaciones:</label>
+
+              <Selects name="room">
                 <option value="0">🛏 Habitaciones</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -148,10 +203,11 @@ function AddNew() {
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
-              </select>
+              </Selects>
             </div>
             <div class="custom-select">
-              <select>
+              <label for="bano">Baño:</label>
+              <Selects name="bano">
                 <option value="0">🛁 Baño</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -165,10 +221,12 @@ function AddNew() {
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
-              </select>
+              </Selects>
             </div>
             <div class="custom-select">
-              <select>
+              <label for="parqueo">Parqueo:</label>
+
+              <Selects name="parqueo">
                 <option value="0">🚘 Parqueo</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -182,10 +240,43 @@ function AddNew() {
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
-              </select>
+              </Selects>
             </div>
-          </div>
-          <div>
+            <div class="custom-select">
+              <label for="niveles">Niveles:</label>
+
+              <Selects name="niveles">
+                <option value="0"> Niveles</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </Selects>
+            </div>
+            <div class="custom-select">
+              <label for="superficie">Superficie Solar:</label>
+
+              <NewInput
+                style={{ marginLeft: "10px", width: "40%" }}
+                name="superficie"
+                type="text"
+                placeholder="260 mª"
+              />
+            </div>
+          </SecondContainer>
+          {/* ------------------------ END DETAILS ------------------------- */}
+
+          {/* ------------------------- ADDRESSES ------------------------- */}
+
+          <ThirdContainer>
             <NewLabels>Direccion</NewLabels>
             <div>
               <NewInput type="text" name="calle" placeholder="Calle" />
@@ -194,18 +285,31 @@ function AddNew() {
 
               <NewInput type="text" name="sector" placeholder="Sector" />
             </div>
-          </div>
+          </ThirdContainer>
+          {/* ------------------------ END ADDRESSES ------------------------- */}
 
-          <NewLabels>Descripcion</NewLabels>
-          <h3>Datos Interesantes</h3>
-          <NewTextArea
-            rows="8"
-            cols="50"
-            placeholder="Agrega una breve descripcion aqui."
-            wrap="soft"
-          ></NewTextArea>
-          <NewAgregarBtn>Agregar</NewAgregarBtn>
+          {/* ------------------------- DATOS INTERESANTES ------------------------- */}
+
+          <FourthContainer>
+            <NewLabels>Descripcion</NewLabels>
+            <h3>Datos Interesantes</h3>
+            <NewTextArea
+              rows="8"
+              cols="50"
+              placeholder=" Agrega una breve descripcion aqui."
+              wrap="soft"
+            ></NewTextArea>
+          </FourthContainer>
+          {/* ------------------------- END DATOS INTERESANTES ------------------------- */}
+
+          {/* ------------------------- IMAGE UPLOADER ------------------------- */}
+
+          <FifthContainer>
+            <ImageUploader />
+          </FifthContainer>
+          {/* ------------------------- END IMAGE UPLOADER ------------------------- */}
         </NewParent>
+        <NewAgregarBtn>Agregar</NewAgregarBtn>
       </NewWrapper>
     </NewContainer>
   );

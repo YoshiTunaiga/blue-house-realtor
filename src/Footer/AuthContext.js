@@ -40,6 +40,9 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password);
   }
 
+  // Adding a new house/ appt/ or else.
+  function addingNew() {}
+
   // We only want to run this once by using a useEffect and unsubscribing when unmounting.
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -58,6 +61,7 @@ export function AuthProvider({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    addingNew,
   };
 
   return (

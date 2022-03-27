@@ -80,7 +80,6 @@ export const Admin = () => {
 
   async function handleLogout() {
     setError("");
-
     try {
       await logout();
       navigate("/signin");
@@ -88,13 +87,18 @@ export const Admin = () => {
       setError("Failed to log out");
     }
   }
+
+  function addNew() {
+    navigate("/agregar");
+  }
+
   return (
     <AdminContainer>
       <AdminWrapper>
         <AdminHead>
           {error && <Alert variant="danger">{error}</Alert>}
           <AdminTitle>Casa Disponibles</AdminTitle>
-          <AgregarBtn>
+          <AgregarBtn onClick={addNew}>
             <PlusSign /> Agregar Nuevo
           </AgregarBtn>
         </AdminHead>
