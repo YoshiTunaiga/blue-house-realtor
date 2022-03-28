@@ -81,6 +81,10 @@ const NewInput = styled.input`
   }
 `;
 
+const NewRadio = styled.input`
+  margin: 0 5px;
+`;
+
 const NewPrecio = styled.input`
   fill: none;
   background: transparent;
@@ -159,7 +163,7 @@ const AddNew = () => {
   const [precio, setPrecio] = useState("");
   const [currency, setCurrency] = useState("");
 
-  console.log(title, precio, currency);
+  console.log("titleeee", title, precio);
 
   // Adding a new house/ appt/ or else.
   /*
@@ -179,22 +183,33 @@ const AddNew = () => {
               <NewInput
                 type="text"
                 name="title"
-                onChange={(text) => setTitle(text)}
+                onChange={(text) => setTitle(text.target.value)}
               />
             </div>
             <OtherPrecio>
               <NewLabels>Precio $</NewLabels>
-              <NewPrecio type="text" required name="precio" />
+              <NewPrecio
+                type="text"
+                required
+                name="precio"
+                onChange={(text) => setTitle(text.target.value)}
+              />
               <div>
                 <Other>
-                  <NewLabels>
-                    <NewInput type="radio" name="usd" />
+                  <p>
+                    <NewRadio
+                      type="checkbox"
+                      name="usd"
+                      onChange={(text) => setCurrency("usd")}
+                    />
                     USD
-                  </NewLabels>
-                  <NewLabels>
-                    <NewInput type="radio" name="dop" />
+                    <NewRadio
+                      type="checkbox"
+                      name="dop"
+                      onChange={(text) => setCurrency("dop")}
+                    />
                     DOP
-                  </NewLabels>
+                  </p>
                 </Other>
               </div>
             </OtherPrecio>
