@@ -1,8 +1,6 @@
 import React from "react";
 import {
   SingleContactContainer,
-  FormContainer,
-  FormWrapper,
   FormParent,
   FormTitle,
   FormLabels,
@@ -14,10 +12,13 @@ import {
 const SingleContact = ({ reference }) => {
   return (
     <SingleContactContainer>
-      <FormParent action="https://formsubmit.co/your@email.com" method="POST">
-        <FormTitle>CONTACT US </FormTitle>
-        <p>Reference #{reference}</p>
-        <FormLabels>Name</FormLabels>
+      <FormParent
+        action="https://formsubmit.co/vincentg547@gmail.com"
+        method="POST"
+      >
+        <FormTitle>CONTACTANOS </FormTitle>
+        <p>Referencia #{reference}</p>
+        <FormLabels>Nombre</FormLabels>
         <FormInput
           type="text"
           placeholder="Your name..."
@@ -31,9 +32,9 @@ const SingleContact = ({ reference }) => {
           name="email"
           required
         />
-        <FormLabels>Message</FormLabels>
+        <FormLabels>Mensaje</FormLabels>
         <FormTextarea name="message" placeholder="Write a message" required />
-        <FormButton type="submit">Contact Us</FormButton>
+        <FormButton type="submit">Enviar</FormButton>
       </FormParent>
     </SingleContactContainer>
   );

@@ -2,8 +2,19 @@ import styled from "styled-components";
 import { colors } from "../../config/colors";
 import { FaBed, FaBath } from "react-icons/fa";
 
+export const Maindiv = styled.div`
+  padding-top: 100px;
+  height: 50%;
+  text-align: center;
+`;
+
+export const MainTitle = styled.h1`
+  color: ${colors.primary};
+  font-weight: bold;
+`;
+
 export const AlquilerContainer = styled.div`
-  padding: 100px 0;
+  padding: 20px 0;
   display: flex;
   flex-direction: row;
   -webkit-display: box;
@@ -51,13 +62,13 @@ export const AlquilerCard = styled.div`
   transition: transform 0.5s;
   -webkit-transition: transform 0.5s;
 
-  &:hover {
+  /* &:hover {
     cursor: pointer;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     .card-image {
       opacity: 1;
-    }
+    } */
   }
 
   @media screen and (max-width: 768px) {

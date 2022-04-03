@@ -335,8 +335,8 @@ const FormButton = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    background-color: ${colors.primary};
-    color: ${colors.white};
+    background-color: ${colors.white};
+    color: ${colors.primary};
   }
 `;
 
