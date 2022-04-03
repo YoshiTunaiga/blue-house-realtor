@@ -41,7 +41,7 @@ class ImageUploader extends React.Component {
     return (
       <MainContainer>
         <div>
-          <NewLabels>Uploaded Images ({this.state.files.length})</NewLabels>
+          <NewLabels>Subir Imagenes ({this.state.files.length})</NewLabels>
         </div>
         <ImagesContainer>
           {this.state.files.map((file) => (

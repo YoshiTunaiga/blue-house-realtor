@@ -222,6 +222,11 @@ const FifthContainer = styled.div`
   padding: 10px;
 `;
 
+const BackButton = styled.button`
+  width: 100px;
+  padding: 5px;
+`;
+
 export {
   AdminContainer,
   AdminWrapper,
@@ -251,4 +256,5 @@ export {
   ThirdContainer,
   FourthContainer,
   FifthContainer,
+  BackButton,
 };

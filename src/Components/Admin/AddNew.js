@@ -20,7 +20,10 @@ import {
   ThirdContainer,
   FourthContainer,
   FifthContainer,
+  AgregarBtn,
+  BackButton,
 } from "./StyleElements";
+import { useNavigate } from "react-router-dom";
 
 /* -------------------- END DIVISORES ------------------------ */
 
@@ -28,7 +31,7 @@ const AddNew = () => {
   const [title, setTitle] = useState("");
   const [precio, setPrecio] = useState("");
   const [currency, setCurrency] = useState("");
-
+  const navigate = useNavigate();
   // console.log("titleeee", title, precio);
 
   // Adding a new house/ appt/ or else.
@@ -41,6 +44,7 @@ const AddNew = () => {
   return (
     <NewContainer>
       <NewWrapper>
+        <BackButton onClick={() => navigate(-1)}>Regresar</BackButton>
         <NewParent>
           {/* ------------------------ TITLE & PRICE ------------------------- */}
           <FirstContainer>

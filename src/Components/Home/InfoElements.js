@@ -54,7 +54,7 @@ export const AlquilerContainer = styled.div`
   -ms-display: flexbox;
   -webkit-display: flex;
   flex-wrap: wrap;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
   align-items: center;
   /* justify-content: center; */
 
@@ -101,14 +101,14 @@ export const AlquilerCard = styled.div`
   transition: transform 0.5s;
   -webkit-transition: transform 0.5s;
 
-  &:hover {
+  /* &:hover {
     cursor: pointer;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     .card-image {
       opacity: 1;
     }
-  }
+  } */
 
   @media screen and (max-width: 768px) {
     margin: 0px;

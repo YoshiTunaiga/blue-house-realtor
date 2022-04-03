@@ -20,9 +20,9 @@ const Footer = () => {
         <FooterLinksContainer>
           <FooterLinksWrapper>
             <FooterLinkItems>
-              <FooterLinkTitle>Company</FooterLinkTitle>
-              <FooterLink to="/contact">About</FooterLink>
-              <FooterLink to="/contact">FAQs</FooterLink>
+              <FooterLinkTitle>Compañia</FooterLinkTitle>
+              <FooterLink to="/contact">Sobre Nosotros</FooterLink>
+              <FooterLink to="/contact">Preguntas Frequentes</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Redes Sociales</FooterLinkTitle>
@@ -45,7 +45,7 @@ const Footer = () => {
               <FooterText to="/">@2022, BlueHouseRealtor.com</FooterText>
             </FooterLinkItems>
             <FooterLinkItems>
-              <FooterLinkTitle>About Us</FooterLinkTitle>
+              <FooterLinkTitle>Communicacion</FooterLinkTitle>
               <FooterLink to="/signin">Admin</FooterLink>
               <FooterLink to="/contact">Contactanos</FooterLink>
             </FooterLinkItems>

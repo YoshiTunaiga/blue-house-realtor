@@ -14,25 +14,32 @@ const ContactUs = () => {
   return (
     <FormContainer>
       <FormWrapper>
-        <FormParent action="https://formsubmit.co/your@email.com" method="POST">
-          <FormTitle>CONTACT US</FormTitle>
-          <FormLabels>Name</FormLabels>
+        <FormParent
+          action="https://formsubmit.co/vincentg547@gmail.com"
+          method="POST"
+        >
+          <FormTitle>CONTACTANOS</FormTitle>
+          <FormLabels>Nombre</FormLabels>
           <FormInput
             type="text"
-            placeholder="Your name..."
+            placeholder="Su Nombre..."
             name="name"
             required
           />
           <FormLabels>Email</FormLabels>
           <FormInput
             type="email"
-            placeholder="Your email..."
+            placeholder="Su correo electronico..."
             name="email"
             required
           />
-          <FormLabels>Message</FormLabels>
-          <FormTextarea name="message" placeholder="Write a message" required />
-          <FormButton type="submit">Contact Us</FormButton>
+          <FormLabels>Mensaje</FormLabels>
+          <FormTextarea
+            name="message"
+            placeholder="Escriba mensaje aqui"
+            required
+          />
+          <FormButton type="submit">Contactanos</FormButton>
         </FormParent>
       </FormWrapper>
     </FormContainer>
