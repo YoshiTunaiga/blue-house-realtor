@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../config/colors";
+import { colors } from "../../config/colors";
 
 const NewLabels = styled.label`
   padding: 12px 12px 12px 0;
